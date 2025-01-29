@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function Mymodal({asin}) {
+function Mymodal({book}) {
   const [show, setShow] = useState(false);
   //stato per i commenti
   const [comments , setComments] = useState([]);
@@ -16,7 +16,7 @@ function Mymodal({asin}) {
 
    const getComments = () => {
     setLoading(true);
-    fetch(`https://striveschool-api.herokuapp.com/api/comments/`, {
+    fetch(`https://striveschool-api.herokuapp.com/api/comments/${book.asin}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Nzc2Y2MwNmNmOGIyNDAwMTU3NzFmYTkiLCJpYXQiOjE3Mzc3NDQ5NzgsImV4cCI6MTczODk1NDU3OH0.pAKu-blSFPdC9wQschCGyVUxlIzJcokrIjDynNdFl_g",
